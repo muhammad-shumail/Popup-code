@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wallpaper Cropper</title>
+    <!-- Include Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://unpkg.com/cropperjs/dist/cropper.css" crossorigin="anonymous">
+  </head>
+
+  <body>
+    <div class="container">
+      <!-- Container to display the image to be cropped -->
+      <img id="wallpaperImage"
+        src="https://marketplace.canva.com/EAE-xnqWvJk/1/0/1600w/canva-retro-smoke-and-round-light-desktop-wallpapers-JLofAI27pCg.jpg"
+        alt="Wallpaper Image">
+    </div>
+
+    <!-- Include jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Include the Cropper JavaScript -->
+    <script src="https://unpkg.com/cropperjs/dist/cropper.js" crossorigin="anonymous"></script>
+    <script>
+      $(document).ready(function () {
+        // Get the image element
+        var image = document.getElementById("wallpaperImage");
+
+        // Initialize the Cropper with no cropping area shown
+        var cropper = new Cropper(image, {
+          aspectRatio: NaN, // Set the aspect ratio as NaN for free cropping
+          viewMode: 0, // Set the view mode to 0 to disable cropping area
+          dragMode: "none", // Set drag mode to "none" to disable dragging
+          cropBoxResizable: false, // Disable resizing of the crop box
+          cropBoxMovable: false, // Disable moving of the crop box
+          responsive: true, // Enable responsiveness for mobile devices
+        });
+
+        // Function to get the crop data in cm metrics
+        function getCropDataInCm() {
+          // Get the wall dimension width and height values in cm
+          var wallWidthCm = parseFloat($("#wallWidth").val());
+          var wallHeightCm = parseFloat($("#wallHeight").val());
+
+          if (isNaN(wallWidthCm) || isNaN(wallHeightCm)) {
+            // If the wall dimension values are not provided, disable cropping area
+            cropper.setDragMode("none");
+            cropper.setCropBoxData({ left: 0, top: 0, width: 0, height: 0 });
+          } else {
+            // If the wall dimension values are provided, enable cropping area
+            var imageWidthCm = 1600; // Replace with your actual image width in cm
+            var imageWidthPx = image.width;
+
+            // Calculate the position of the line (half of the wall width)
+            var lineX = (wallWidthCm / imageWidthCm) * imageWidthPx;
+
+            // Set the cropping area data
+            cropper.setDragMode("move");
+            cropper.setCropBoxData({ left: lineX, top: 0, width: imageWidthPx - lineX, height: image.height });
+          }
+
+          // Get the crop data from the Cropper instance
+          var cropData = cropper.getData();
+
+          // Assuming your image has a known width in cm
+          var imageWidthCm = 1600; // Replace with your actual image width in cm
+
+          // Calculate the width and height in cm based on the image width
+          var widthCm = (cropData.width / image.width) * imageWidthCm;
+          var heightCm = (cropData.height / image.height) * imageWidthCm;
+
+          // Calculate the position in cm
+          var xCm = (cropData.x / image.width) * imageWidthCm;
+          var yCm = (cropData.y / image.height) * imageWidthCm;
+
+          // Output the results on the webpage
+          $("#cropData").html(
+            "Width: " + widthCm.toFixed(2) + " cm<br>" +
+            "Height: " + heightCm.toFixed(2) + " cm<br>" +
+            "X Position: " + xCm.toFixed(2) + " cm<br>" +
+            "Y Position: " + yCm.toFixed(2) + " cm"
+          );
+
+          // Output the results in the console
+          console.log("Width: " + widthCm.toFixed(2) + " cm");
+
+          // add reset button
+          $("#reset").click(function () {
+            cropper.reset();
+          });
+        }
+
+        // Example: Call the function to get crop data when needed, e.g., on a button click
+        $("#getCropDataBtn").click(function () {
+          getCropDataInCm();
+        });
+      });
+    </script>
+
+    <!-- Wall Dimension Input Fields -->
+    <div>
+      <label for="wallWidth">Wall Width (cm): </label>
+      <input type="number" id="wallWidth" placeholder="Enter wall width in cm">
+    </div>
+    <div>
+      <label for="wallHeight">Wall Height (cm): </label>
+      <input type="number" id="wallHeight" placeholder="Enter wall height in cm">
+      <button id="reset" type="reset" class="btn btn-primary">Reset</button>
+    </div>
+
+    <!-- Button to get crop data -->
+    <button id="getCropDataBtn">Get Crop Data</button>
+
+    <!-- Display the crop data on the webpage -->
+    <div id="cropData"></div>
+  
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"></script>
+  </body>
+
+</html>
