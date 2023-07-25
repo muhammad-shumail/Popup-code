@@ -49,6 +49,7 @@ $(function () {
     },
     crop: function (e) {
       console.log(e.type);
+      
     },
     zoom: function (e) {
       console.log(e.type, e.detail.ratio);
