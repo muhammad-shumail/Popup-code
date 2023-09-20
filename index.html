@@ -1,18 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lan g=" en ">
 
   <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="A jQuery plugin wrapper for Cropper.js.">
-    <meta name="author" content="Chen Fengyuan">
-    <title>jquery-cropper</title>
+
+    <title>Wallpaper</title>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    <link href="https://trending.deltareclame.nl/wp-content/plugins/wallpaper/cdn/mdb.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://trending.deltareclame.nl/wp-content/plugins/wallpaper/cdn/cropper.css"
       crossorigin="anonymous">
+    <link rel="stylesheet" href="https://trending.deltareclame.nl/wp-content/plugins/wallpaper/main.css">
+
+
+
+
+    <!-- <link href="cdn/font-awesome-min.css" rel="stylesheet" /> -->
+    <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" crossorigin="anonymous">
+     Font Awesome -->
+
+    <!-- MDB -->
+    <!-- <link href="cdn/mdb.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="cdn/cropper.css" crossorigin="anonymous">
-    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="main.css"> -->
 
     <style>
       /* .cropper-dashed.dashed-h {
@@ -24,340 +35,512 @@
         width: 100%;
         opacity: 1;
       } */
+
+      .modal-body {
+        padding: 0 !important;
+      }
+
+      .modal-fullscreen {
+        min-width: 100%;
+        margin: 0;
+      }
+
+      .modal-fullscreen .modal-content {
+        min-height: 100vh;
+      }
+
+      .modal-fullscreen .modal-body {
+        overflow-y: auto;
+      }
+
+      .modal-fullscreen .modal-dialog {
+        margin: 0;
+        margin-right: auto;
+        margin-left: auto;
+        width: 100%;
+      }
+
+      .modal-fullscreen .modal-dialog .modal-content {
+        border: 0;
+        border-radius: 0;
+      }
+
+      .modal-fullscreen .modal-dialog .modal-content .modal-body {
+        padding: 0;
+      }
+
+      .modal-fullscreen .modal-dialog .modal-content .modal-body iframe {
+        width: 100%;
+        height: 100%;
+        border: 0;
+      }
+
+      .modal-fullscreen .modal-dialog .modal-content .modal-header {
+        border-radius: 0;
+      }
     </style>
   </head>
 
   <body>
-    <!-- Divider Line -->
-    <div class="position-relative">
-      <hr class="divider-line">
-    </div>
+
+    <section class="wallpaper">
 
 
+      <!-- Button trigger modal -->
+      <button type="button" class="btn btn-primary" data-mdb-toggle="modal" data-mdb-target="#wallpaperModal">
+        Edit Wallpaper
+      </button>
 
-    <!-- Content -->
-    <div class="container-fluid ">
-      <div class="row">
-        <div class="col-md-8 bg-white py-2 responsive-gap-left">
+      <!-- Modal -->
+      <div class="modal top fade " id="wallpaperModal" tabindex="-1" aria-labelledby="wallpaperModalLabel"
+        aria-hidden="true" data-mdb-backdrop="true" data-mdb-keyboard="true">
+        <div class="modal-dialog modal-fullscreen ">
+          <div class="modal-content">
 
-          <!-- go back with icon and below this full width horizontal divider line -->
-          <div class="container">
-            <div class="d-flex justify-content-md-start py-2">
-              <a href="index.html" class="text-dark">
-                <i class="fas fa-arrow-left"></i>
-                <span class="ml-2">Back</span>
-              </a>
-            </div>
-          </div>
-
-          <h5 class="mt-3" style="color: #041A4B;">Select your format</h5>
-          <!-- this works -->
-          <div class="img-container mt-2">
-            <img id="image"
-              src="/wallpaper.jpg"
-              alt="Picture" >
-          </div>
-
-          <!-- Roll guides check box with icon and text -->
-          <div class="container">
-            <div class="d-flex justify-content-md-start py-2">
-              <div class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" id="rollGuides">
-                <label class="custom-control-label" for="rollGuides">Roll Guides <span>(53cm per roll)</span></label>
+            <div class="modal-body"><!-- Divider Line -->
+              <div class="position-relative">
+                <hr class="divider-line">
               </div>
-            </div>
-          </div>
-          <!-- this section will be remove before deployment -->
 
 
 
-        </div>
+              <!-- Content -->
+              <div class="container-fluid ">
+                <div class="row-mdn">
+                  <div class="col-md-8 bg-white py-2 responsive-gap-left" style="height: 100vh;">
 
-        <!-- right section -->
-        <div class="col-md-4 col-sm-12 bg-right py-2 responsive-gap-right docs-buttons h-100" style=" height: 100vh;">
-          <div class="container-fluid d-none d-md-block">
-            <div class="d-flex justify-content-end py-2">
-              <button type="button" class="close" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-          </div>
+                    <!-- go back with icon and below this full width horizontal divider line -->
+                    <div class="container">
+                      <div class="d-inline justify-content-md-start py-2">
 
-          <div>
-            <h1 id="product_title" style="display: none;">Agaat Marmer Behang
-            </h1>
-            <h5 class="mt-3" style="color: #041A4B;">Personalize your wallpaper</h5>
-            <p class="">Need Help? <strong class="text-dark">Contact us</strong> directly for cropping or color
-              customization
-            </p>
-          </div>
-
-          <div class="docs-data">
-
-            <!-- Wall Dimensions: section -->
-            <section class="container-fluid mb-3">
-              <div class="row">
-                <div class="col-md-12 col-sm-12">
-                  <div class="d-flex justify-content-between">
-                    <div>
-                      <span class="extra-small-text">Wall Dimensions:</span>
-                    </div>
-                    <div class="mb-2">
-                      <span class="text-underline">How do I measure this? <i class="fas fa-info-circle ml-2 text-muted"
-                          data-toggle="tooltip" title="Wall dimensions information"></i></span>
-                    </div>
-                  </div>
-                  <div class="d-flex primary-color">
-                    <div class="input-group input-group-sm">
-                      <input type="text" class="form-control" id="dataWidthCM" placeholder="width">
-                      <span class="input-group-append">
-                        <span class="input-group-text">(cm)</span>
-                      </span>
-                    </div>
-                    <div class="input-group input-group-sm">
-                      <input type="text" class="form-control" id="dataHeightCM" placeholder="height">
-                      <span class="input-group-append">
-                        <span class="input-group-text">(cm)</span>
-                      </span>
-                    </div>
-                  </div>
-                  <div id="message" style="display:none"></div>
-                </div>
-              </div>
-            </section>
-
-            <!-- Wall type: section -->
-            <section class="container-fluid mb-3">
-              <div class="row">
-                <div class="col-md-12 col-sm-12">
-                  <div class="d-flex justify-content-between">
-                    <div>
-                      <span class="extra-small-text">Choose a wallpaper type:</span>
-                    </div>
-                    <div class="mb-2">
-                      <span class="text-underline">Types of wallpaper</span>
-                    </div>
-                  </div>
-                  <div class="list-group">
-                    <a href="#" class="list-group-item list-group-item-action mb-2">
-                      <div class="d-flex justify-content-center font-weight-bold primary-color">
-                        <!-- <i class="fas fa-paint-roller mr-2"></i> -->
-                        <div class="custom-control custom-checkbox">
-                          <input type="checkbox" class="custom-control-input" id="ErurtPro">
-                          <label class="custom-control-label" for="ErurtPro"></label><span class="mr-2">Variovlies
-                            (ErurtPro<sup>®</sup>) -</span>
-                          <span>£39,59m<sup>2</sup></span></label>
-                        </div>
+                        <!-- <button type="button" class="btn-sm btn-primary"><i class="fas fa-arrow-left mr-2"></i>Go
+                        Back</button> -->
+                        <!-- use mdn bootstrap with use fontawesom -->
+                        <button type="button" class="btn btn-light" data-mdb-dismiss="modal" aria-label="Close"><i
+                            class="fas fa-arrow-left mr-2"></i>Go Back</button>
 
                       </div>
-                    </a>
-                    <a href="#" class="list-group-item list-group-item-action mb-2">
-                      <div class="d-flex justify-content-center primary-color">
-                        <!-- <i class="fas fa-paint-roller mr-2"></i> -->
-                        <div class="custom-control custom-checkbox">
-                          <input type="checkbox" class="custom-control-input" id="AirtexPro">
-                          <label class="custom-control-label" for="AirtexPro"></label><span class="mr-2">Seamless
-                            (AirtexPro<sup>®</sup>) -</span>
-                          <span>£39,59m<sup>2</sup></span></label>
-                        </div>
-
-                      </div>
-                    </a>
-                    <a href="#" class="list-group-item list-group-item-action mb-2">
-                      <div class="d-flex justify-content-center  primary-color">
-                        <!-- <i class="fas fa-paint-roller mr-2"></i> -->
-                        <div class="custom-control custom-checkbox">
-                          <input type="checkbox" class="custom-control-input" id="MultitexPro">
-                          <label class="custom-control-label" for="MultitexPro"></label><span class="mr-2">Seamless
-                            (MultitexPro<sup>®</sup>) -</span>
-                          <span>£39,59m<sup>2</sup></span></label>
-                        </div>
-
-                      </div>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </section>
-
-            <!-- Number of rolls per square meter section -->
-            <section class="container-fluid mb-3">
-              <div class="row">
-                <div class="col-md-12 col-sm-12">
-                  <div class="d-flex justify-content-between">
-                    <div>
-                      <span class="extra-small-text">Number of rolls per square meter</span>
                     </div>
+
+                    <h5 class="mt-3" style="color: #041A4B;">Select your format</h5>
+                    <!-- this works -->
+                    <div class="img-container mt-2">
+                      <img id="image" src="https://trending.deltareclame.nl/wp-content/plugins/wallpaper/wallpaper.jpg"
+                        alt="Picture">
+                    </div>
+                    <div class="container">
+                      <div class="d-flex justify-content-md-start py-2">
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" value="rollGuides" id="rollGuides"
+                            name="rollGuides" />
+                          <label class="form-check-label" for="rollGuides">
+                            Roll Guides <span id="roll-message">(53cm per roll)</span>
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+
                   </div>
-                  <div class="d-flex mb-2 ">
-                    <div class="w-100 mr-2">
-                      <a href="#" class="list-group-item list-group-item-action "
-                        style="padding: 6px; margin-top: 10px;">
-                        <div class="d-flex justify-content-center  primary-color">
-                          <!-- <i class="fas fa-paint-roller mr-2"></i> -->
-                          <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" id="first">
-                            <label class="custom-control-label" for="first"></label><span class="mr-2">
-                              53cm per roll<span></label>
+
+                  <!-- right section -->
+                  <div class="col-md-4 col-sm-12 bg-right py-2 responsive-gap-right docs-buttons "
+                    style="height: 100vh;">
+                    <div class="container-fluid d-none d-md-block">
+                      <div class="d-flex justify-content-end py-2">
+                        <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                    </div>
+
+                    <div>
+                      <h1 id="product_title" style="display: none;">Agaat Marmer Behang
+                      </h1>
+                      <h5 class="mt-3" style="color: #041A4B;">Personalize your wallpaper</h5>
+                      <p class="">Need Help? <strong class="text-dark">Contact us</strong> directly for cropping or
+                        color
+                        customization
+                      </p>
+                    </div>
+
+                    <div class="docs-data">
+
+                      <!-- Wall Dimensions: section -->
+                      <section class="container-fluid mb-3">
+                        <div class="row-mdn">
+                          <div class="col-md-12 col-sm-12">
+                            <div class="d-flex justify-content-between">
+                              <div>
+                                <span class="extra-small-text">Wall Dimensions:</span>
+                              </div>
+                              <div class="mb-2">
+                                <span class="text-underline">How do I measure this? <i
+                                    class="fas fa-info-circle ml-2 text-muted" data-toggle="tooltip"
+                                    title="Wall dimensions information"></i></span>
+                              </div>
+                            </div>
+                            <div class="d-flex primary-color">
+                              <div class="input-group input-group-sm">
+                                <input type="text" class="form-control" id="dataWidthCM" placeholder="width">
+                                <span class="input-group-append">
+                                  <span class="input-group-text">(cm)</span>
+                                </span>
+                              </div>
+                              <div class="input-group input-group-sm">
+                                <input type="text" class="form-control" id="dataHeightCM" placeholder="height">
+                                <span class="input-group-append">
+                                  <span class="input-group-text">(cm)</span>
+                                </span>
+                              </div>
+                            </div>
+                            <div id="message" class="text-danger  " style="font-size: 12px;"></div>
                           </div>
-
                         </div>
-                      </a>
-                    </div>
-                    <div class="w-100">
-                      <a href="#" class="list-group-item list-group-item-action "
-                        style="padding: 6px; margin-top: 10px;">
-                        <div class="d-flex justify-content-center  primary-color">
-                          <!-- <i class="fas fa-paint-roller mr-2"></i> -->
-                          <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" id="second">
-                            <label class="custom-control-label" for="second"></label><span class="mr-2">
-                              70cm per roll<span></label>
+                      </section>
+
+                      <!-- Wall type: section -->
+                      <section class="container-fluid mb-3">
+                        <div class="row-mdn">
+                          <div class="col-md-12 col-sm-12">
+                            <div class="d-flex justify-content-between">
+                              <div>
+                                <span class="extra-small-text">Choose a wallpaper type:</span>
+                              </div>
+                              <div class="mb-2">
+                                <span class="text-underline">Types of wallpaper</span>
+                              </div>
+                            </div>
+
+
+                            <div class="list-group">
+                              <div class="list-group-item list-group-item-action mb-2">
+                                <div class="d-flex justify-content-center font-weight-bold primary-color">
+                                  <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="ErurtPro" id="ErurtPro"
+                                      name="wallpaper" checked />
+                                    <label class="form-check-label" for="ErurtPro"><span class="mr-2">Variovlies
+                                        (ErurtPro<sup>®</sup>) -</span>
+                                      <span>£20,59m<sup>2</sup></span></label>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="list-group-item list-group-item-action mb-2">
+                                <div class="d-flex justify-content-center primary-color">
+                                  <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="AirtexPro" id="AirtexPro"
+                                      name="wallpaper" />
+                                    <label class="form-check-label" for="AirtexPro"><span class="mr-2">Seamless
+                                        (AirtexPro<sup>®</sup>) -</span>
+                                      <span>£25,59m<sup>2</sup></span></label>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="list-group-item list-group-item-action mb-2">
+                                <div class="d-flex justify-content-center primary-color">
+                                  <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="MultitexPro" id="multitexpro"
+                                      name="wallpaper" />
+                                    <label class="form-check-label" for="multitexpro"><span class="mr-2">MultitexPro
+                                        (MultitexPro<sup>®</sup>) -</span>
+                                      <span>£29,59m<sup>2</sup></span></label>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
                           </div>
-
                         </div>
-                      </a>
+                      </section>
+
+                      <!-- Number of rolls per square meter section -->
+                      <section class="container-fluid mb-3">
+                        <div class="row-mdn">
+                          <div class="col-md-12 col-sm-12">
+                            <div class="d-flex justify-content-between">
+                              <div>
+                                <span class="extra-small-text">Number of rolls per square meter</span>
+                              </div>
+                            </div>
+                            <div class="d-flex mb-2">
+                              <div class="w-100 mr-2">
+                                <div class="list-group-item list-group-item-action"
+                                  style="padding: 6px; margin-top: 10px;">
+                                  <div class="d-flex justify-content-center primary-color">
+                                    <div class="custom-control custom-checkbox">
+
+                                      <input class="form-check-input" type="radio" value="53" id="roll-1" name="roll"
+                                        checked />
+                                      <label class="form-check-label" for="53">
+                                        <span class="mr-2">53cm per roll</span>
+                                      </label>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="w-100">
+                                <div class="list-group-item list-group-item-action"
+                                  style="padding: 6px; margin-top: 10px;">
+                                  <div class="d-flex justify-content-center primary-color">
+                                    <div class="custom-control custom-checkbox">
+                                      <input class="form-check-input" type="radio" value="70" id="roll-2" name="roll" />
+                                      <label class="form-check-label" for="70">
+                                        <span class="mr-2">70cm per roll</span>
+                                      </label>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </section>
+
+                      <!-- Total Price section -->
+                      <section class="container-fluid mb-3">
+                        <div class="row-mdn">
+                          <div class="col-md-12 col-sm-12">
+                            <div class="d-flex justify-content-between">
+                              <div class="">
+                                <span class="extra-small-text">Total Price:</span>
+                                £<span id="price"></span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </section>
+
+                      <!-- Order before 8:00, delivered Friday 8 April -->
+                      <section class="container-fluid mb-3">
+                        <div class="row-mdn">
+                          <div class="col-md-12 col-sm-12">
+                            <div class="d-flex justify-content-between">
+                              <div>
+                                <!-- use font awesome smile icon -->
+                                <i class="fas fa-smile fa-sm fa-fw text-success"></i>
+                                <span class="primary-color" style="font-size: x-small;">Order before 20:00, delivered
+                                  Friday 8
+                                  April</span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </section>
+
+                      <!-- Add to cart button section -->
+                      <section class="container-fluid mb-3">
+                        <div class="row-mdn">
+                          <div class="col-md-12 col-sm-12">
+                            <div class="d-flex justify-content-between">
+
+                              <!-- <form class="w-100" action="https://trending.deltareclame.nl/product/agaat-marmer-behang/"
+                              method="post" enctype="multipart/form-data"> -->
+                              <button type="submit" name="add-to-cart"
+                                class="add_to_cart single_add_to_cart_button btn btn-warning btn-block d-flex align-items-center single_add_to_cart_button button alt"
+                                data-mdb-dismiss="modal" onclick="add_me_tocart()" aria-label="Close">
+                                <i class="fas fa-shopping-cart mr-2"></i>
+                                <span class="docs-tooltip" data-toggle="tooltip" data-animation="false">
+                                  Add to Cart
+                                </span>
+                              </button>
+                              <!-- </form> -->
+
+
+                              <!-- </form> -->
+                            </div>
+                          </div>
+                        </div>
+                      </section>
+
                     </div>
-
                   </div>
                 </div>
               </div>
-            </section>
-
-            <!-- Total Price section -->
-            <section class="container-fluid mb-3">
-              <div class="row">
-                <div class="col-md-12 col-sm-12">
-                  <div class="d-flex justify-content-between">
-                    <div>
-                      <span class="extra-small-text">Total Price:</span>
-                      <i class="fas fa-dollar-sign fa-sm fa-fw"><span id="price">349.99</span></i>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </section>
-
-            <!-- Order before 8:00, delivered Friday 8 April -->
-            <section class="container-fluid mb-3">
-              <div class="row">
-                <div class="col-md-12 col-sm-12">
-                  <div class="d-flex justify-content-between">
-                    <div>
-                      <i class="fas fa-smile fa-sm fa-fw text-success"></i>
-                      <span class="primary-color" style="font-size: x-small;">Order before 20:00, delivered Friday 8
-                        April</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </section>
-
-            <!-- Add to cart button section -->
-            <section class="container-fluid mb-3">
-              <div class="row">
-                <div class="col-md-12 col-sm-12">
-                  <div class="d-flex justify-content-between">
-                    <!-- <button name="add-to-cart" value="2518" type="button" class="btn btn-block d-flex align-items-center single_add_to_cart_button button alt"
-                      style="background-color: #FBA239;" data-method="getData" data-option data-target="#putData">
-                      <i class="fas fa-shopping-cart mr-2"></i>
-                      <span class="docs-tooltip" data-toggle="tooltip" data-animation="false">
-                        Add to Cart
-                      </span>
-
-                    </button> -->
-                    <!-- <form class="w-100" action="https://trending.deltareclame.nl/product/agaat-marmer-behang/" method="post"
-                      enctype="multipart/form-data"> -->
-
-                      <button type="submit" name="add-to-cart" value="2518" class="add_to_cart single_add_to_cart_button button btn btn-block d-flex align-items-center single_add_to_cart_button button alt"
-                        style="background-color: #FBA239;" data-quantity="1" data-product_id="2518" data-product_sku=""
-                        aria-label="Add “Agaat Marmer Behang” to your cart" data-toggle="tooltip" data-animation="false">
-                        <i class="fas fa-shopping-cart mr-2"></i>
-                        <span class="docs-tooltip" data-toggle="tooltip" data-animation="false">
-                          Add to Cart
-                        </span>
-                      </button>
-
-                    <!-- </form> -->
-                  </div>
-                </div>
-              </div>
-            </section>
-
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </section>
+
+
 
     <!-- Scripts -->
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"
+    <!-- All in one Jquery with Ajax -->
+    <script src="https://trending.deltareclame.nl/wp-content/plugins/wallpaper/cdn/ajax-jquery.min.js"></script>
+    <script type="text/javascript"
+      src="https://trending.deltareclame.nl/wp-content/plugins/wallpaper/cdn/mdb.min.js"></script>
+    <script src="https://trending.deltareclame.nl/wp-content/plugins/wallpaper/cdn/cropper.js"
       crossorigin="anonymous"></script>
+    <script src="https://trending.deltareclame.nl/wp-content/plugins/wallpaper/jquery-cropper.js"></script>
+    <script src="https://trending.deltareclame.nl/wp-content/plugins/wallpaper/main.js"></script>
+    <script src="https://trending.deltareclame.nl/wp-content/plugins/wallpaper/box.js"></script>
+
+
+
+
+
+
+    <!-- <script src="cdn/ajax-jquery.min.js"></script>
+    <script type="text/javascript" src="cdn/mdb.min.js"></script>
     <script src="cdn/cropper.js" crossorigin="anonymous"></script>
     <script src="jquery-cropper.js"></script>
     <script src="main.js"></script>
-    <script src="box.js"></script>
-    <script defer src="defer.js"></script>
+    <script src="box.js"></script> -->
     <script>
-      // Define the minimum and maximum values for the inputs
-      const min = 30;
-      const max = 4000;
 
-      function validateInput() {
-        let width = $('#dataWidthCM').val();
-        let height = $('#dataHeightCM').val();
-        // Check if the values are below the minimum or above the maximum
-        if (width < min || width > max || height < min || height > max) {
-          // Show a nice message to the user
-          $('#message').text('The value is not allowed. Please enter a value between ' + min + ' and ' + max + ' cm.');
-          $('#message').show();
-        } else {
-          $('#message').hide();
-        }
-      }
-      $('#dataWidthCM, #dataHeightCM').on('change', validateInput);
-      
+      /*
+      About wallpaper sizes and prices
 
-      $('.add_to_cart').click(function () {
-        var product_id = $(this).attr("id");
-        var product_title = $('#product_title').text();
-        var product_price = parseFloat($('#price').text());
-        var product_quantity = 5
-        var action = "add";
-        // update price
-        let newPrice = product_price * product_quantity;
-        $('#price').text(newPrice);
+        There are 3 materials.
 
-        if (product_quantity > 0) {
-          // Make a dummy JSON data
-          var data = {
-            product_id: product_id,
-            product_title: product_title,
-            product_price: parseFloat($('#price').text()),
-            product_quantity: product_quantity,
-            action: action
+        1. Erfurt Pro. This wallpaper comes in rolls. Max height is 1000cm. it has no max width as it comes in rolls. Price: € 19.95 m2
+        2. Airtex. this wallpaper doesnt  come in rolls but as one whole print. The max height is 494cm. Max width is 20 meters. Price: € 26,95 m2
+        3. Multitex pro. this wallpaper doesnt  come in rolls but as one whole print. The max achievable size to get out of one print is 291 x 1200 cm.
+      */
 
-          };
-          // Console and alert the data
-          console.log(data);
-          // alert(JSON.stringify(data));
-          // Comment out the ajax request
-          $.ajax({
-            url: "action.php",
-            method: "POST",
-            data: data,
-            success: function (response) {
-              // alert(response);
-              // load_cart_data();
-            }
-          });
-        } else {
-          alert("Please enter number of quantity");
-        }
-      });
+
+      // $(document).ready(function () {
+
+      //   let rollValue = 53;
+      //   let productPrice = 12.99;
+      //   let widthValue = $('#dataWidthCM').val();
+      //   let heightValue = $('#dataHeightCM').val();
+      //   let setProductPrice = $('#price').text(String(productPrice));
+      //   let selectedPackage = null;
+
+      //   const wallpaperMaterials = [
+      //     {
+      //       id: 'ErurtPro',
+      //       name: 'Variovlies (ErurtPro®)',
+      //       minWidth: 40,
+      //       maxWidth: 1000,
+      //       minHeight: 40,
+      //       maxHeight: 1000,
+      //       price: 19.95
+      //     },
+      //     {
+      //       id: 'AirtexPro',
+      //       name: 'Seamless (AirtexPro®)',
+      //       minWidth: 40,
+      //       maxWidth: 20000,
+      //       minHeight: 40,
+      //       maxHeight: 494,
+      //       price: 26.95
+      //     },
+      //     {
+      //       id: 'MultitexPro',
+      //       name: 'Seamless (MultitexPro®)',
+      //       minWidth: 40,
+      //       maxWidth: 291,
+      //       minHeight: 40,
+      //       maxHeight: 1200,
+      //       price: 30.95
+      //     }
+      //   ];
+
+      //   function validateInput(width_min, width_max, height_min, height_max) {
+      //     let width = parseFloat($('#dataWidthCM').val()) || 0;
+      //     let height = parseFloat($('#dataHeightCM').val()) || 0;
+
+      //     // Check if the values are below the minimum or above the maximum
+      //     if (width < width_min || width > width_max || height < height_min || height > height_max) {
+      //       // Show a nice message to the user
+      //       const errorMessage = `The value is not allowed. Please enter a value between <span class="fw-bold">${width_min}</span> and <span class="fw-bold">${width_max}</span> cm for width, and between <span class="fw-bold">${height_min}</span> and <span class="fw-bold">${height_max}</span> cm for height.`;
+      //       $('#message').html(errorMessage).addClass('text-danger').show();
+      //     } else {
+      //       $('#message').hide();
+      //     }
+      //   }
+
+      //   // Set the selectedPackage when a wallpaper is checked
+      //   $(document).on("change", "input[name='wallpaper']", function () {
+      //     $("input[name='wallpaper']").not(this).prop("checked", false);
+      //     var value = $(this).val();
+      //     selectedPackage = wallpaperMaterials.find(item => item.id === value);
+      //     updateTotalPrice();
+      //   });
+
+      //   $(document).on("change", "input[name='roll']", function () {
+      //     $("input[name='roll']").not(this).prop("checked", false);
+      //     var value = $(this).val();
+      //     rollValue = value;
+      //     updateTotalPrice();
+      //   });
+
+      //   function calculateTotalPrice(width, height) {
+      //     if (!selectedPackage) return 0;
+
+      //     const totalPrice = (width * height) * 0.0001 * selectedPackage.price;
+      //     return totalPrice.toFixed(2);
+      //   }
+
+      //   function updateTotalPrice() {
+      //     const width = parseFloat($('#dataWidthCM').val()) || 0;
+      //     const height = parseFloat($('#dataHeightCM').val()) || 0;
+      //     const selectedPackageId = $('input[name="wallpaper"]:checked').val();
+      //     const selectedPackageInfo = wallpaperMaterials.find(item => item.id === selectedPackageId);
+
+      //     if (selectedPackageInfo) {
+      //       validateInput(selectedPackageInfo.minWidth, selectedPackageInfo.maxWidth, selectedPackageInfo.minHeight, selectedPackageInfo.maxHeight);
+      //     }
+
+      //     const totalPrice = calculateTotalPrice(width, height);
+      //     $('#price').text(totalPrice);
+
+      //   }
+
+      //   // Initialize total price by calling updateTotalPrice on page load
+      //   // updateTotalPrice();
+
+      //   $('#dataWidthCM, #dataHeightCM').on('change', function () {
+      //     console.log('Width Changed:', $('#dataWidthCM').val());
+      //     console.log('Height Changed:', $('#dataHeightCM').val());
+      //     updateTotalPrice();
+      //   });
+
+      //   $('#dataWidthCM, #dataHeightCM').on('change', updateTotalPrice);
+
+
+      // });
+
+
+
+
+      // $('.add_to_cart').click(function () {
+      //   var product_id = $(this).attr("id");
+      //   var product_title = $('#product_title').text();
+      //   var product_price = parseFloat($('#price').text());
+      //   var product_quantity = 5
+      //   var action = "add";
+      //   // update price
+      //   let newPrice = product_price * product_quantity;
+      //   $('#price').text(newPrice);
+
+      //   if (product_quantity > 0) {
+      //     // Make a dummy JSON data
+      //     var data = {
+      //       product_id: product_id,
+      //       product_title: product_title,
+      //       product_price: parseFloat($('#price').text()),
+      //       product_quantity: product_quantity,
+      //       action: action
+
+      //     };
+      //     // Console and alert the data
+      //     console.log(data);
+      //     // alert(JSON.stringify(data));
+      //     // Comment out the ajax request
+      //     $.ajax({
+      //       url: "action.php",
+      //       method: "POST",
+      //       data: data,
+      //       success: function (response) {
+      //         // alert(response);
+      //         // load_cart_data();
+      //       }
+      //     });
+      //   } else {
+      //     alert("Please enter number of quantity");
+      //   }
+      // });
 
     </script>
   </body>
 
-</html>
+  <html>
